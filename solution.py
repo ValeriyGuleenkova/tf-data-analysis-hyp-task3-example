@@ -7,7 +7,7 @@ chat_id = 215606022  # Ваш chat ID, не меняйте название пе
 SGN_LVL = 0.09
 
 def solution(x: np.array, y: np.array) -> bool:
-    pval = ttest_ind(x, y, equal_var=False, alternative='less').pvalue
+    pval = ttest_ind(np.log(x), np.log(y), equal_var=False, alternative='less').pvalue
     if pval < SGN_LVL:
         return True
     # true: выборки не равны
